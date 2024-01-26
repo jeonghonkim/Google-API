@@ -2,6 +2,7 @@
 <br/>
 
 ## 1. Aerial View
+<br/>
 > **Updates**
 * Ver.1 &nbsp;|&nbsp; Jan 2024 <br>
    - [X] Requested video url by using `aerial_lookup`
@@ -9,5 +10,7 @@
    - [X] Built a function to render a new video if there is no record under an address
    - [X] Extend the tool to use in ArcGIS Pro with arcpy
 
+<br/>
+<br/>
 ## 2. Direction
 
