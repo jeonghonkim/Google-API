@@ -1,6 +1,6 @@
 '''                                                                              
 Script: Google Aerial View API 
-Author: Jeong Hoon Kim (JeongHoon.Kim@cbre.com) 
+Author: Jeong Hoon Kim 
 Date: Jan 23, 2024 
 Last Updated: Jan 23, 2024         
 ''' 
