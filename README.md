@@ -13,6 +13,8 @@
 <br/>
 
 ## 2. 3D Tile
+
+> **Updates**
 * Ver.1 &nbsp;|&nbsp; Feb 2024 <br>
    - [X] Imported Photorealistic 3D Tile by using CesiumJS and Google Map Tiles API
 
