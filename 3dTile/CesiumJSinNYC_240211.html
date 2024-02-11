@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CesiumJS: Google Photorealistic 3D Tileset</title>
+  <!-- Include the CesiumJS JavaScript and CSS files -->
+  <script src="http://cesium.com/downloads/cesiumjs/releases/1.113/Build/Cesium/Cesium.js"></script>
+  <script src="http://unpkg.com/@esri/arcgis-rest-request@4.0.0/dist/bundled/request.umd.js"></script>
+  <link href="http://cesium.com/downloads/cesiumjs/releases/1.113/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+  <style>
+    html,
+    body {
+      margin: 0px;
+      padding: 0px;
+      height: 100%;
+    }
+    #cesiumContainer {
+      height: 100%
+    }
+  </style>  
+</head>
+<body>
+  <div id="cesiumContainer" style="height: 100%;"></div>
+  <script type="module">
+    
+    // ArcGIS API Key
+    const EsriApiKey = "MY_ESRI_APIKEY";
+    Cesium.ArcGisMapService.defaultAccessToken = EsriApiKey;
+    
+    // Cesium Access Token
+    const CesiumApiKey = "MY_CESIUM_APIKEY";
+    Cesium.Ion.defaultAccessToken = CesiumApiKey;
+    
+    // Google Maps API Key
+    const GoogleApiKey = "MY_GOOGLE_APIKEY";
+    Cesium.GoogleMaps.defaultApiKey = GoogleApiKey;
+
+    // Initialize the Cesium Viewer
+    const viewer = new Cesium.Viewer("cesiumContainer", {
+      timeline: false,
+      animation: false,
+      sceneModePicker: false,
+      baseLayerPicker: false,
+      globe: false,
+    });
+    
+    // Add Photorealistic 3D Tiles
+    try {
+      const tileset = await Cesium.createGooglePhotorealistic3DTileset();
+      viewer.scene.primitives.add(tileset);
+    } catch (error) {
+      console.log(`Error loading Photorealistic 3D Tiles tileset.
+      ${error}`);
+    }
+
+    // Enable rendering the sky
+    viewer.scene.skyAtmosphere.show = true;
+
+    // Set camera view fix
+    viewer.camera.setView({
+      destination: Cesium.Cartesian3.fromDegrees(-73.97901276411525, 40.756038575378135, 400),
+      orientation: {
+        heading: Cesium.Math.toRadians(-5.0),
+        pitch: Cesium.Math.toRadians(-40.0),
+      },
+    });
+
+  </script>
+</body>
+</html>
